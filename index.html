@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LifeStealz.net — Minecraft Server</title>
+  <meta name="description" content="Join LifeStealz.net — a competitive Minecraft survival server. Connect at LifeStealz.net. Buy ranks, keys and more in our store." />
+  <meta name="keywords" content="LifeStealz, LifeStealz SMP, Minecraft server, lifesteal SMP, buy ranks, Minecraft SMP" />
+  <meta property="og:title" content="LifeStealz.net — Minecraft Server" />
+  <meta property="og:description" content="Join LifeStealz.net — Minecraft Server" />
+  <meta property="og:image" content="https://i.ibb.co/gL1DkH98/upsized.png" />
+  <meta property="og:url" content="https://www.lifestealz.net" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #8B1A1A;
+      --red-light: #B12323;
+      --red-dark: #5a0f0f;
+      --green: #70DB3B;
+      --green-dark: #4fa825;
+      --discord: #5865F2;
+      --discord-dark: #4752c4;
+      --dark: #111111;
+      --dark2: #1a1a1a;
+      --dark3: #222222;
+      --text: #ffffff;
+      --text-muted: #cccccc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* BG noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 60px 0 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 30px rgba(139,26,26,0.6));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes title-shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      background: linear-gradient(135deg, #C02E2E 0%, #8B1A1A 40%, #6B0F0F 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: title-shimmer 4s ease-in-out infinite;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    /* GRID */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .card-grid-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--red);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(139,26,26,0.5);
+    }
+
+    /* Store card */
+    .card-store {
+      grid-column: 1 / -1;
+      min-height: 220px;
+    }
+
+    .card-store-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-store-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px 24px;
+      gap: 12px;
+    }
+
+    .card-store-label {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .card-store-arrow {
+      margin-left: auto;
+      font-size: 2rem;
+      font-weight: 900;
+      opacity: 1;
+    }
+
+    /* Discord card */
+    .card-discord {
+      background: var(--discord);
+      padding: 24px;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 130px;
+    }
+
+    .card-discord:hover {
+      box-shadow: 0 12px 40px rgba(88,101,242,0.4);
+    }
+
+    .discord-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .discord-icon {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+
+    .discord-name {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .discord-sub {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+
+    .discord-cta {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+      margin-top: auto;
+    }
+
+    /* Join card */
+    .card-join {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 24px;
+      gap: 12px;
+      min-height: 130px;
+    }
+
+    .card-join:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    .join-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .join-ip-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: auto;
+    }
+
+    .join-ip {
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: monospace;
+      letter-spacing: 0.03em;
+      flex: 1;
+    }
+
+    .copy-btn {
+      background: #C02E2E;
+      border: none;
+      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.15s;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover { background: #9a2020; }
+
+    .copy-btn svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .join-editions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .edition-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.08);
+      color: var(--text-muted);
+    }
+
+    /* Server image card */
+    .card-server {
+      grid-column: 1 / -1;
+      min-height: 160px;
+    }
+
+    .card-server-img {
+      width: 100%;
+      height: 100%;
+      min-height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 32px 0 40px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* shine on cards */
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
+      animation: card-shine 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes card-shine {
+      0%, 30% { left: -75%; }
+      60%, 100% { left: 125%; }
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .card-grid, .card-grid-bottom {
+        grid-template-columns: 1fr;
+      }
+      .card-store { grid-column: 1; }
+      .card-server { grid-column: 1; }
+      .hero { padding: 40px 0 30px; }
+      .hero-logo { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <img class="hero-logo" src="https://i.ibb.co/gL1DkH98/upsized.png" alt="LifeStealz Logo" />
+      <h1 class="hero-title">LifeStealz.net</h1>
+      <p class="hero-sub">A competitive Minecraft survival experience. Java &amp; Bedrock. Join the community today.</p>
+    </div>
+
+    <div class="card-grid">
+      <!-- Store -->
+      <a class="card card-store" href="https://store.lifestealz.net" target="_blank" rel="noopener">
+        <img class="card-store-img" src="https://i.ibb.co/Swj6CJj7/store.webp" alt="LifeStealz Store" />
+        <div class="card-store-overlay">
+          <span class="card-store-label">Store</span>
+          <span class="card-store-arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-grid-bottom">
+      <!-- Discord -->
+      <a class="card card-discord" href="https://discord.gg/lifestealz" target="_blank" rel="noopener">
+        <div class="discord-top">
+          <svg class="discord-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z" fill="white"/></svg>
+          <span class="discord-name">Discord</span>
+        </div>
+        <p class="discord-sub">Join our community</p>
+        <span class="discord-cta">Click to join →</span>
+      </a>
+
+      <!-- How to Join -->
+      <div class="card card-join">
+        <span class="join-label">How to Join</span>
+        <div class="join-editions">
+          <span class="edition-tag">Java</span>
+          <span class="edition-tag">Bedrock</span>
+        </div>
+        <div class="join-ip-row">
+          <span class="join-ip" id="ip-text">LifeStealz.net</span>
+          <button class="copy-btn" onclick="copyIP()" title="Copy IP">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 LifeStealz.net. All rights reserved.
+    </div>
+
+  </div>
+
+  <script>
+    function copyIP() {
+      var ip = document.getElementById('ip-text').textContent.trim();
+      navigator.clipboard.writeText(ip).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.style.background = '#9a2020';
+        btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(function() {
+          btn.style.background = '';
+          btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
