@@ -520,6 +520,11 @@
         </div>
 
         <div class="field">
+          <label for="discord">Discord Username <span class="req-star">*</span></label>
+          <input type="text" id="discord" placeholder="e.g. yourname" maxlength="37" />
+        </div>
+
+        <div class="field">
           <label for="timezone">Timezone / Country <span class="req-star">*</span></label>
           <input type="text" id="timezone" placeholder="e.g. EST — United States" />
         </div>
@@ -548,14 +553,14 @@
 
         <div class="field">
           <label for="why-staff">Why do you want to be staff? <span class="req-star">*</span></label>
-          <textarea id="why-staff" placeholder="Tell us why you want to join the LifeStealz staff team..." oninput="updateCounter(this, 'why-counter', 100)"></textarea>
-          <div class="word-counter bad" id="why-counter">0 / 100 characters minimum</div>
+          <textarea id="why-staff" placeholder="Tell us why you want to join the LifeStealz staff team..." oninput="updateCounter(this, 'why-counter', 50)"></textarea>
+          <div class="word-counter bad" id="why-counter">0 / 50 characters minimum</div>
         </div>
 
         <div class="field">
           <label for="why-you">Why should we choose you? <span class="req-star">*</span></label>
-          <textarea id="why-you" placeholder="What makes you stand out from other applicants?" oninput="updateCounter(this, 'you-counter', 100)"></textarea>
-          <div class="word-counter bad" id="you-counter">0 / 100 characters minimum</div>
+          <textarea id="why-you" placeholder="What makes you stand out from other applicants?" oninput="updateCounter(this, 'you-counter', 50)"></textarea>
+          <div class="word-counter bad" id="you-counter">0 / 50 characters minimum</div>
         </div>
 
         <div class="submit-row">
@@ -608,7 +613,7 @@
     });
 
     const WEBHOOK_URL = 'https://weathered-shape-dc51.lifestealz.workers.dev';
-    const MIN_CHARS = 100;
+    const MIN_CHARS = 50;
 
     // Rate limiting — one submission per session
     var submitted = false;
@@ -645,6 +650,7 @@
 
       var ign        = document.getElementById('ign').value.trim();
       var age        = document.getElementById('age').value.trim();
+      var discord    = document.getElementById('discord').value.trim();
       var timezone   = document.getElementById('timezone').value.trim();
       var experience = document.getElementById('experience').value;
       var expDetail  = document.getElementById('exp-detail').value.trim();
@@ -652,7 +658,7 @@
       var whyYou     = document.getElementById('why-you').value.trim();
 
       // Validation
-      if (!ign || !age || !timezone || !experience || !whyStaff || !whyYou) {
+      if (!ign || !age || !discord || !timezone || !experience || !whyStaff || !whyYou) {
         showToast('Please fill in all fields before submitting.', 'error');
         return;
       }
@@ -703,6 +709,7 @@
           fields: ([
             { name: '🎮 Minecraft Username', value: ign, inline: true },
             { name: '🎂 Age', value: age, inline: true },
+            { name: '💬 Discord Username', value: discord, inline: true },
             { name: '🌍 Timezone / Country', value: timezone, inline: false },
             { name: '🛡️ Previous Experience', value: expLabels[experience] || experience, inline: false },
             expDetail ? { name: '📝 Experience Details', value: expDetail.length > 1024 ? expDetail.substring(0, 1021) + '...' : expDetail, inline: false } : null,
@@ -724,6 +731,22 @@
           submitted = true;
           document.getElementById('formBody').classList.add('hidden');
           document.getElementById('successScreen').classList.add('visible');
+          setTimeout(function() {
+            submitted = false;
+            document.getElementById('formBody').classList.remove('hidden');
+            document.getElementById('successScreen').classList.remove('visible');
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('submitBtn').textContent = 'Submit Application';
+            document.querySelectorAll('input, select, textarea').forEach(function(el) {
+              el.value = '';
+              el.classList.remove('has-value');
+            });
+            document.getElementById('exp-detail-field').style.display = 'none';
+            document.getElementById('why-counter').textContent = '0 / 50 characters minimum';
+            document.getElementById('why-counter').className = 'word-counter bad';
+            document.getElementById('you-counter').textContent = '0 / 50 characters minimum';
+            document.getElementById('you-counter').className = 'word-counter bad';
+          }, 5000);
         } else {
           throw new Error('Webhook failed: ' + res.status);
         }
