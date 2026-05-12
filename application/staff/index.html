@@ -298,6 +298,10 @@
       border-color: var(--red);
     }
 
+    input.has-value, select.has-value, textarea.has-value {
+      border-color: #70DB3B;
+    }
+
     input::placeholder, textarea::placeholder {
       color: #444;
     }
@@ -543,14 +547,14 @@
 
         <div class="field">
           <label for="why-staff">Why do you want to be staff? <span class="req-star">*</span></label>
-          <textarea id="why-staff" placeholder="Tell us why you want to join the LifeStealz staff team..." oninput="updateCounter(this, 'why-counter', 40)"></textarea>
-          <div class="word-counter bad" id="why-counter">0 / 40 words minimum</div>
+          <textarea id="why-staff" placeholder="Tell us why you want to join the LifeStealz staff team..." oninput="updateCounter(this, 'why-counter', 100)"></textarea>
+          <div class="word-counter bad" id="why-counter">0 / 100 characters minimum</div>
         </div>
 
         <div class="field">
           <label for="why-you">Why should we choose you? <span class="req-star">*</span></label>
-          <textarea id="why-you" placeholder="What makes you stand out from other applicants?" oninput="updateCounter(this, 'you-counter', 40)"></textarea>
-          <div class="word-counter bad" id="you-counter">0 / 40 words minimum</div>
+          <textarea id="why-you" placeholder="What makes you stand out from other applicants?" oninput="updateCounter(this, 'you-counter', 100)"></textarea>
+          <div class="word-counter bad" id="you-counter">0 / 100 characters minimum</div>
         </div>
 
         <div class="submit-row">
@@ -581,23 +585,44 @@
       }
     }
 
-    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1503823908913021144/MOdUbhggN0cSUuAjWWhv0nDaHo1Y2X5evIqkG5YKPe0fRFvMgeG3Oxo9qiR8SvDpNMzt';
-    const MIN_WORDS = 40;
+    // Green border when field has value
+    document.addEventListener('DOMContentLoaded', function() {
+      var fields = document.querySelectorAll('input, select, textarea');
+      fields.forEach(function(el) {
+        el.addEventListener('input', function() {
+          if (el.value.trim().length > 0) {
+            el.classList.add('has-value');
+          } else {
+            el.classList.remove('has-value');
+          }
+        });
+        el.addEventListener('change', function() {
+          if (el.value.trim().length > 0) {
+            el.classList.add('has-value');
+          } else {
+            el.classList.remove('has-value');
+          }
+        });
+      });
+    });
+
+    const WEBHOOK_URL = 'https://weathered-shape-dc51.lifestealz.workers.dev';
+    const MIN_CHARS = 100;
 
     // Rate limiting — one submission per session
     var submitted = false;
 
-    function countWords(str) {
-      return str.trim().split(/\s+/).filter(function(w) { return w.length > 0; }).length;
+    function countChars(str) {
+      return str.trim().length;
     }
 
     function updateCounter(el, counterId, min) {
-      var words = countWords(el.value);
+      var chars = countChars(el.value);
       var counter = document.getElementById(counterId);
-      counter.textContent = words + ' / ' + min + ' words minimum';
-      if (words >= min) {
+      counter.textContent = chars + ' / ' + min + ' characters minimum';
+      if (chars >= min) {
         counter.className = 'word-counter ok';
-      } else if (words >= min * 0.6) {
+      } else if (chars >= min * 0.6) {
         counter.className = 'word-counter warn';
       } else {
         counter.className = 'word-counter bad';
@@ -647,13 +672,13 @@
         return;
       }
 
-      if (countWords(whyStaff) < MIN_WORDS) {
-        showToast('"Why do you want to be staff?" needs at least ' + MIN_WORDS + ' words.', 'error');
+      if (countChars(whyStaff) < MIN_CHARS) {
+        showToast('"Why do you want to be staff?" needs at least ' + MIN_CHARS + ' characters.', 'error');
         return;
       }
 
-      if (countWords(whyYou) < MIN_WORDS) {
-        showToast('"Why should we choose you?" needs at least ' + MIN_WORDS + ' words.', 'error');
+      if (countChars(whyYou) < MIN_CHARS) {
+        showToast('"Why should we choose you?" needs at least ' + MIN_CHARS + ' characters.', 'error');
         return;
       }
 
