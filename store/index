@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store — LifeStealz.net</title>
+  <meta name="description" content="Buy ranks, keys, crates and more for LifeStealz.net — the competitive Minecraft LifeSteal SMP server." />
+  <meta property="og:title" content="Store — LifeStealz.net" />
+  <meta property="og:image" content="https://i.ibb.co/gL1DkH98/upsized.png" />
+  <meta property="og:url" content="https://www.lifestealz.net/store" />
+  <link rel="canonical" href="https://www.lifestealz.net/store" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <!-- Redirect to the actual store after a brief moment -->
+  <meta http-equiv="refresh" content="0;url=https://store.lifestealz.net" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #111111;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .wrap { padding: 40px 20px; }
+    .logo {
+      width: 80px;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 0 20px rgba(139,26,26,0.6));
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #C02E2E, #8B1A1A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    p { color: #cccccc; font-size: 0.9rem; margin-bottom: 24px; }
+    a {
+      display: inline-block;
+      background: #8B1A1A;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    a:hover { background: #C02E2E; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="https://i.ibb.co/gL1DkH98/upsized.png" alt="LifeStealz Logo" />
+    <h1>LifeStealz Store</h1>
+    <p>Redirecting you to our store...</p>
+    <a href="https://store.lifestealz.net">Go to Store →</a>
+  </div>
+  <script>window.location.replace("https://store.lifestealz.net");</script>
+</body>
+</html>
