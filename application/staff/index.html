@@ -487,7 +487,7 @@
       <div class="req-card">
         <div class="req-icon">🎂</div>
         <div class="req-label">Min Age</div>
-        <div class="req-value">14+</div>
+        <div class="req-value">16+</div>
       </div>
       <div class="req-card">
         <div class="req-icon">🎮</div>
@@ -522,7 +522,7 @@
           </div>
           <div class="field">
             <label for="age">Age <span class="req-star">*</span></label>
-            <input type="number" id="age" placeholder="16" min="14" max="99" />
+            <input type="number" id="age" placeholder="16" min="16" max="99" />
           </div>
         </div>
 
@@ -676,8 +676,8 @@
       }
 
       var ageNum = parseInt(age, 10);
-      if (isNaN(ageNum) || ageNum < 14 || ageNum > 99) {
-        showToast('You must be at least 14 to apply.', 'error');
+      if (isNaN(ageNum) || ageNum < 16 || ageNum > 99) {
+        showToast('You must be at least 16 to apply.', 'error');
         return;
       }
 
