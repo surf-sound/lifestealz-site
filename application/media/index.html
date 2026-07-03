@@ -1028,6 +1028,10 @@
         return { name: platformEmojis[p] + ' ' + platformLabels[p] + ' Plans', value: val.length > 1024 ? val.substring(0, 1021) + '...' : val, inline: false };
       });
 
+      function divider(label) {
+        return { name: '▸ ' + label, value: '\u200b', inline: false };
+      }
+
       var btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Submitting...';
@@ -1038,18 +1042,22 @@
         embeds: [{
           title: '🎬 New Media Application',
           color: 0xFF8FC7,
+          thumbnail: { url: 'https://mc-heads.net/avatar/' + encodeURIComponent(ign) + '/100' },
           fields: ([
             { name: '🎮 Minecraft Username', value: ign, inline: true },
             { name: '🎂 Age', value: age, inline: true },
             { name: '💬 Discord Username', value: discord, inline: true },
-            { name: '🌍 Timezone / Country', value: timezone, inline: false },
-            { name: '📱 Social Media Used', value: platformsUsedLabel, inline: false },
-            { name: '🎥 Content Experience', value: expLabels[experience] || experience, inline: false },
+            { name: '🌍 Timezone / Country', value: timezone, inline: true },
+            { name: '📱 Platforms Used', value: platformsUsedLabel, inline: true },
+            { name: '🎥 Content Experience', value: expLabels[experience] || experience, inline: true },
+            divider('Content & Links'),
             expDetail ? { name: '📝 Experience Details', value: expDetail.length > 1024 ? expDetail.substring(0, 1021) + '...' : expDetail, inline: false } : null,
             { name: '🔗 Social Links', value: socialLinks.length > 1024 ? socialLinks.substring(0, 1021) + '...' : socialLinks, inline: false }
           ].concat(platformFields).concat([
-            { name: '📅 Posting Frequency', value: postingFreq, inline: false },
-            contentStyle ? { name: '🎨 Content Style', value: contentStyle.length > 1024 ? contentStyle.substring(0, 1021) + '...' : contentStyle, inline: false } : null,
+            divider('Details'),
+            { name: '📅 Posting Frequency', value: postingFreq, inline: true },
+            contentStyle ? { name: '🎨 Content Style', value: contentStyle.length > 1024 ? contentStyle.substring(0, 1021) + '...' : contentStyle, inline: true } : null,
+            divider('Essay Answers'),
             { name: '❓ Why do you want to join the media team?', value: whyMedia.length > 1024 ? whyMedia.substring(0, 1021) + '...' : whyMedia, inline: false },
             { name: '⭐ Why should we choose you?', value: whyYou.length > 1024 ? whyYou.substring(0, 1021) + '...' : whyYou, inline: false }
           ])).filter(Boolean),
