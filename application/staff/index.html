@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Staff Application — LifeStealz.net</title>
-  <meta name="description" content="Fill out our application to apply for LifeStealz staff!" />
-  <meta property="og:title" content="Staff Application — LifeStealz.net" />
-  <meta property="og:description" content="Fill out our application to apply for LifeStealz staff!" />
+  <title>Staff Application — PeakSMP.net</title>
+  <meta name="description" content="Fill out our application to apply for PeakSMP staff!" />
+  <meta property="og:title" content="Staff Application — PeakSMP.net" />
+  <meta property="og:description" content="Fill out our application to apply for PeakSMP staff!" />
   <meta property="og:image" content="https://i.ibb.co/WNpf04mT/memo-twemoji-512.png" />
-  <meta property="og:url" content="https://www.lifestealz.net/application/staff/" />
+  <meta property="og:url" content="https://peaksmp.net/application/staff/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" />
@@ -16,8 +16,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red: #C02E2E;
-      --red-dark: #8B1A1A;
+      --red: #5fc9f3;
+      --red-dark: #5fc9f3;
       --red-deeper: #5a0f0f;
       --dark: #0B0B0B;
       --dark2: #141414;
@@ -55,7 +55,7 @@
     .nav-logo {
       font-size: 1rem;
       font-weight: 900;
-      background: linear-gradient(135deg, #C02E2E 0%, #8B1A1A 40%, #6B0F0F 100%);
+      background: linear-gradient(135deg, #5fc9f3 0%, #5fc9f3 40%, #1e5f7a 100%);
       background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -155,7 +155,7 @@
     }
 
     .hero-title span {
-      background: linear-gradient(135deg, #C02E2E 0%, #8B1A1A 40%, #6B0F0F 100%);
+      background: linear-gradient(135deg, #5fc9f3 0%, #5fc9f3 40%, #1e5f7a 100%);
       background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -469,16 +469,16 @@
 <body>
 
   <nav class="nav">
-    <a href="https://www.lifestealz.net" class="nav-logo">LifeStealz.net</a>
+    <a href="https://peaksmp.net" class="nav-logo">PeakSMP.net</a>
     <span class="nav-sep">/</span>
     <span class="nav-page">Staff Application</span>
-    <a href="https://discord.gg/lifestealz" class="nav-store" style="background:#5865F2; margin-left:auto;">Discord</a>
-    <a href="https://store.lifestealz.net" class="nav-store" style="margin-left:0;">Store</a>
+    <a href="https://discord.gg/peakpvp" class="nav-store" style="background:#5865F2; margin-left:auto;">Discord</a>
+    <a href="https://store.peaksmp.net" class="nav-store" style="margin-left:0;">Store</a>
   </nav>
 
   <div class="hero">
     <div class="hero-badge">🛡️ Now Recruiting</div>
-    <h1 class="hero-title">Join the <span>LifeStealz</span><br>Staff Team</h1>
+    <h1 class="hero-title">Join the <span>PeakSMP</span><br>Staff Team</h1>
     <p class="hero-sub">Think you have what it takes? Fill out the application below and we'll review it as soon as possible.</p>
   </div>
 
@@ -560,7 +560,7 @@
 
         <div class="field">
           <label for="why-staff">Why do you want to be staff? <span class="req-star">*</span></label>
-          <textarea id="why-staff" placeholder="Tell us why you want to join the LifeStealz staff team..." oninput="updateCounter(this, 'why-counter', 50)"></textarea>
+          <textarea id="why-staff" placeholder="Tell us why you want to join the PeakSMP staff team..." oninput="updateCounter(this, 'why-counter', 50)"></textarea>
           <div class="word-counter bad" id="why-counter">0 / 50 characters minimum</div>
         </div>
 
@@ -581,8 +581,8 @@
       <div class="success-screen" id="successScreen">
         <div class="success-icon">✅</div>
         <h2 class="success-title">Application Submitted!</h2>
-        <p class="success-text">Thanks for applying to the LifeStealz staff team. We'll review your application and reach out on Discord if you're selected. This usually takes up to 7 days.</p>
-        <a href="https://www.lifestealz.net" class="success-back">Back to Home</a>
+        <p class="success-text">Thanks for applying to the PeakSMP staff team. We'll review your application and reach out on Discord if you're selected. This usually takes up to 7 days.</p>
+        <a href="https://peaksmp.net" class="success-back">Back to Home</a>
       </div>
     </div>
   </div>
@@ -712,7 +712,7 @@
         avatar_url: 'https://i.ibb.co/4gmzc3Md/botpfp.png',
         embeds: [{
           title: '📋 New Staff Application',
-          color: 0xC02E2E,
+          color: 0x5FC9F3,
           fields: ([
             { name: '🎮 Minecraft Username', value: ign, inline: true },
             { name: '🎂 Age', value: age, inline: true },
@@ -723,7 +723,7 @@
             { name: '❓ Why do you want to be staff?', value: whyStaff.length > 1024 ? whyStaff.substring(0, 1021) + '...' : whyStaff, inline: false },
             { name: '⭐ Why should we choose you?', value: whyYou.length > 1024 ? whyYou.substring(0, 1021) + '...' : whyYou, inline: false }
           ]).filter(Boolean),
-          footer: { text: 'LifeStealz Staff Application • www.lifestealz.net/application/staff' },
+          footer: { text: 'PeakSMP Staff Application • peaksmp.net/application/staff' },
           timestamp: new Date().toISOString()
         }]
       };
