@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Media Application — LifeStealz.net</title>
-  <meta name="description" content="Fill out our application to apply for the LifeStealz media team!" />
-  <meta property="og:title" content="Media Application — LifeStealz.net" />
-  <meta property="og:description" content="Fill out our application to apply for the LifeStealz media team!" />
+  <title>Media Application — PeakSMP.net</title>
+  <meta name="description" content="Fill out our application to apply for the PeakSMP media team!" />
+  <meta property="og:title" content="Media Application — PeakSMP.net" />
+  <meta property="og:description" content="Fill out our application to apply for the PeakSMP media team!" />
   <meta property="og:image" content="https://i.ibb.co/WNpf04mT/memo-twemoji-512.png" />
-  <meta property="og:url" content="https://www.lifestealz.net/application/media/" />
+  <meta property="og:url" content="https://peaksmp.net/application/media/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" />
@@ -583,16 +583,16 @@
 <body>
 
   <nav class="nav">
-    <a href="https://www.lifestealz.net" class="nav-logo">LifeStealz.net</a>
+    <a href="https://peaksmp.net" class="nav-logo">PeakSMP.net</a>
     <span class="nav-sep">/</span>
     <span class="nav-page">Media Application</span>
-    <a href="https://discord.gg/lifestealz" class="nav-store" style="background:#5865F2; margin-left:auto;">Discord</a>
-    <a href="https://store.lifestealz.net" class="nav-store" style="margin-left:0;">Store</a>
+    <a href="https://discord.gg/peakpvp" class="nav-store" style="background:#5865F2; margin-left:auto;">Discord</a>
+    <a href="https://store.peaksmp.net" class="nav-store" style="margin-left:0;">Store</a>
   </nav>
 
   <div class="hero">
     <div class="hero-badge">🎬 Now Recruiting</div>
-    <h1 class="hero-title">Join the <span>LifeStealz</span><br>Media Team</h1>
+    <h1 class="hero-title">Join the <span>PeakSMP</span><br>Media Team</h1>
     <p class="hero-sub">Create content for the server and get featured. Fill out the application below and we'll review it as soon as possible.</p>
   </div>
 
@@ -762,7 +762,7 @@
 
         <div class="field">
           <label for="why-media">Why do you want to join the media team? <span class="req-star">*</span></label>
-          <textarea id="why-media" placeholder="Tell us why you want to create content for LifeStealz..." oninput="updateCounter(this, 'why-counter', 50)"></textarea>
+          <textarea id="why-media" placeholder="Tell us why you want to create content for PeakSMP..." oninput="updateCounter(this, 'why-counter', 50)"></textarea>
           <div class="word-counter bad" id="why-counter">0 / 50 characters minimum</div>
         </div>
 
@@ -783,8 +783,8 @@
       <div class="success-screen" id="successScreen">
         <div class="success-icon">✅</div>
         <h2 class="success-title">Application Submitted!</h2>
-        <p class="success-text">Thanks for applying to the LifeStealz media team. We'll review your application and reach out on Discord if you're selected. This usually takes up to 7 days.</p>
-        <a href="https://www.lifestealz.net" class="success-back">Back to Home</a>
+        <p class="success-text">Thanks for applying to the PeakSMP media team. We'll review your application and reach out on Discord if you're selected. This usually takes up to 7 days.</p>
+        <a href="https://peaksmp.net" class="success-back">Back to Home</a>
       </div>
     </div>
   </div>
@@ -1061,7 +1061,7 @@
             { name: '❓ Why do you want to join the media team?', value: whyMedia.length > 1024 ? whyMedia.substring(0, 1021) + '...' : whyMedia, inline: false },
             { name: '⭐ Why should we choose you?', value: whyYou.length > 1024 ? whyYou.substring(0, 1021) + '...' : whyYou, inline: false }
           ])).filter(Boolean),
-          footer: { text: 'LifeStealz Media Application • www.lifestealz.net/application/media' },
+          footer: { text: 'PeakSMP Media Application • peaksmp.net/application/media' },
           timestamp: new Date().toISOString()
         }]
       };
