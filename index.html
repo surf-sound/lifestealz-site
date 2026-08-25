@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LifeStealz.net — Minecraft Server</title>
-  <meta name="description" content="Join LifeStealz.net — a competitive Minecraft survival server. Connect at LifeStealz.net. Buy ranks, keys and more in our store." />
-  <meta name="keywords" content="LifeStealz, LifeStealz SMP, Minecraft server, lifesteal SMP, buy ranks, Minecraft SMP" />
-  <meta property="og:title" content="LifeStealz.net — Minecraft Server" />
-  <meta property="og:description" content="Join LifeStealz.net — Minecraft Server" />
+  <title>PeakSMP.net — Minecraft Server</title>
+  <meta name="description" content="Join PeakSMP.net — a competitive Minecraft survival server. Connect at PeakSMP.net. Buy ranks, keys and more in our store." />
+  <meta name="keywords" content="PeakSMP, PeakSMP SMP, Minecraft server, lifesteal SMP, buy ranks, Minecraft SMP" />
+  <meta property="og:title" content="PeakSMP.net — Minecraft Server" />
+  <meta property="og:description" content="Join PeakSMP.net — Minecraft Server" />
   <meta property="og:image" content="https://i.ibb.co/gL1DkH98/upsized.png" />
-  <meta property="og:url" content="https://www.lifestealz.net" />
+  <meta property="og:url" content="https://peaksmp.net" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="google-site-verification" content="DqKYfBvp_bmoWpZEjU1wnLwgXofFhnW7NuVeGVzDSIQ" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="canonical" href="https://www.lifestealz.net/" />
+  <link rel="canonical" href="https://peaksmp.net/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" />
 
@@ -22,26 +22,26 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "LifeStealz.net",
-    "url": "https://www.lifestealz.net",
+    "name": "PeakSMP.net",
+    "url": "https://peaksmp.net",
     "description": "A competitive Minecraft survival server. Java & Bedrock.",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.lifestealz.net/?q={search_term_string}",
+      "target": "https://peaksmp.net/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     },
     "hasPart": [
       {
         "@type": "WebPage",
         "name": "Store",
-        "url": "https://www.lifestealz.net/store",
-        "description": "Buy ranks, keys and more for LifeStealz.net Minecraft server."
+        "url": "https://peaksmp.net/store",
+        "description": "Buy ranks, keys and more for PeakSMP.net Minecraft server."
       },
       {
         "@type": "WebPage",
         "name": "Discord",
-        "url": "https://www.lifestealz.net/discord",
-        "description": "Join the LifeStealz.net community Discord server."
+        "url": "https://peaksmp.net/discord",
+        "description": "Join the PeakSMP.net community Discord server."
       }
     ]
   }
@@ -51,9 +51,10 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red: #8B1A1A;
-      --red-light: #B12323;
-      --red-dark: #5a0f0f;
+      --secondary: #d2dee5;
+      --red: #5fc9f3;
+      --red-light: #5fc9f3;
+      --red-dark: #2a7a9c;
       --green: #70DB3B;
       --green-dark: #4fa825;
       --discord: #5865F2;
@@ -62,7 +63,7 @@
       --dark2: #1a1a1a;
       --dark3: #222222;
       --text: #ffffff;
-      --text-muted: #cccccc;
+      --text-muted: #c3d4dc;
     }
 
     html { scroll-behavior: smooth; }
@@ -116,7 +117,7 @@
       width: 140px;
       height: 140px;
       object-fit: contain;
-      filter: drop-shadow(0 0 30px rgba(139,26,26,0.6));
+      filter: drop-shadow(0 0 30px rgba(95,201,243,0.6));
       animation: float 3s ease-in-out infinite;
     }
 
@@ -135,7 +136,7 @@
       font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 1;
-      background: linear-gradient(135deg, #C02E2E 0%, #8B1A1A 40%, #6B0F0F 100%);
+      background: linear-gradient(135deg, #5fc9f3 0%, #5fc9f3 40%, #1e5f7a 100%);
       background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -178,7 +179,7 @@
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(139,26,26,0.5);
+      box-shadow: 0 12px 40px rgba(95,201,243,0.5);
     }
 
     .card-store {
@@ -266,7 +267,7 @@
 
     .card-join {
       background: var(--dark2);
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(210,222,229,0.15);
       padding: 24px;
       gap: 12px;
       min-height: 130px;
@@ -303,7 +304,7 @@
     }
 
     .copy-btn {
-      background: #C02E2E;
+      background: #5fc9f3;
       border: none;
       border-radius: 6px;
       width: 32px;
@@ -316,7 +317,7 @@
       flex-shrink: 0;
     }
 
-    .copy-btn:hover { background: #9a2020; }
+    .copy-btn:hover { background: #3fa8d1; }
     .copy-btn svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     .join-editions {
@@ -414,15 +415,15 @@
   <div class="container">
 
     <div class="hero">
-      <img class="hero-logo" src="https://i.ibb.co/gL1DkH98/upsized.png" alt="LifeStealz Logo" />
-      <h1 class="hero-title">LifeStealz.net</h1>
+      <img class="hero-logo" src="https://i.ibb.co/gL1DkH98/upsized.png" alt="PeakSMP Logo" />
+      <h1 class="hero-title">PeakSMP.net</h1>
       <p class="hero-sub">A competitive Minecraft survival experience. Java &amp; Bedrock. Join the community today.</p>
     </div>
 
     <div class="card-grid">
       <!-- Store — now links to /store (internal redirect page) -->
       <a class="card card-store" href="/store">
-        <img class="card-store-img" src="https://i.ibb.co/Swj6CJj7/store.webp" alt="LifeStealz Store" />
+        <img class="card-store-img" src="https://i.ibb.co/Swj6CJj7/store.webp" alt="PeakSMP Store" />
         <div class="card-store-overlay">
           <span class="card-store-label">Store</span>
           <span class="card-store-arrow">→</span>
@@ -449,7 +450,7 @@
           <span class="edition-tag">Bedrock</span>
         </div>
         <div class="join-ip-row">
-          <span class="join-ip" id="ip-text">LifeStealz.net</span>
+          <span class="join-ip" id="ip-text">PeakSMP.net</span>
           <button class="copy-btn" onclick="copyIP()" title="Copy IP">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -465,7 +466,7 @@
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
       </div>
-      &copy; 2025 LifeStealz.net. All rights reserved.
+      &copy; 2025 PeakSMP.net. All rights reserved.
     </div>
 
   </div>
@@ -475,7 +476,7 @@
       var ip = document.getElementById('ip-text').textContent.trim();
       navigator.clipboard.writeText(ip).then(function() {
         var btn = document.querySelector('.copy-btn');
-        btn.style.background = '#9a2020';
+        btn.style.background = '#3fa8d1';
         btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><polyline points="20 6 9 17 4 12"/></svg>';
         setTimeout(function() {
           btn.style.background = '';
