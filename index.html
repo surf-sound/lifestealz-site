@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PeakSMP.net — Minecraft Server</title>
-  <meta name="description" content="Join PeakSMP.net — a competitive Minecraft survival server. Connect at PeakSMP.net. Buy ranks, keys and more in our store." />
-  <meta name="keywords" content="PeakSMP, PeakSMP SMP, Minecraft server, lifesteal SMP, buy ranks, Minecraft SMP" />
-  <meta property="og:title" content="PeakSMP.net — Minecraft Server" />
-  <meta property="og:description" content="Join PeakSMP.net — Minecraft Server" />
+  <title>PeakSMP.net — Minecraft Lifesteal SMP Server</title>
+  <meta name="description" content="Join PeakSMP.net — a free Minecraft lifesteal SMP with a player economy. Java & Bedrock, 1.8.9 to latest. Connect at PeakSMP.net." />
+  <meta name="keywords" content="PeakSMP, Peak SMP, Minecraft lifesteal server, lifesteal SMP, Minecraft economy server, Minecraft server, buy ranks" />
+  <meta property="og:title" content="PeakSMP.net — Minecraft Lifesteal SMP Server" />
+  <meta property="og:description" content="A free Minecraft lifesteal SMP with a player economy. Java & Bedrock, 1.8.9 to latest. Join the community today." />
   <meta property="og:image" content="https://www.peaksmp.net/assets/logo.png" />
   <meta property="og:url" content="https://www.peaksmp.net" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -24,7 +24,7 @@
     "@type": "WebSite",
     "name": "PeakSMP.net",
     "url": "https://www.peaksmp.net",
-    "description": "A competitive Minecraft survival server. Java & Bedrock.",
+    "description": "A free Minecraft lifesteal SMP with a player economy. Java & Bedrock, 1.8.9 to latest.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://www.peaksmp.net/?q={search_term_string}",
@@ -42,6 +42,76 @@
         "name": "Discord",
         "url": "https://www.peaksmp.net/discord",
         "description": "Join the PeakSMP.net community Discord server."
+      },
+      {
+        "@type": "WebPage",
+        "name": "How to Join",
+        "url": "https://www.peaksmp.net/how-to-join",
+        "description": "Java & Bedrock instructions, server IP, and port for PeakSMP.net."
+      },
+      {
+        "@type": "WebPage",
+        "name": "Rules",
+        "url": "https://www.peaksmp.net/rules",
+        "description": "Official rules for PeakSMP.net Minecraft server."
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ structured data: mirrors the visible FAQ accordion on the page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is PeakSMP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PeakSMP is a competitive Minecraft lifesteal survival server (SMP) with a built-in player economy. Fight, survive, and trade with the community in one shared world."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I join PeakSMP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add PeakSMP.net as your server address in Minecraft and connect \u2014 it's completely free, with no whitelist or application required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the PeakSMP server IP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The server address is PeakSMP.net."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does PeakSMP support Java and Bedrock?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. PeakSMP supports both Java Edition and Bedrock Edition players on the same server, from version 1.8.9 through the latest release."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is PeakSMP free to play?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, PeakSMP is completely free to play. Anyone can join at PeakSMP.net with no whitelist or application."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the rules on PeakSMP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PeakSMP follows standard fair-play rules, including no cheating, hacking, or exploiting. The full rules are listed on the PeakSMP rules page."
+        }
       }
     ]
   }
@@ -84,16 +154,6 @@
       pointer-events: none;
       z-index: 0;
       opacity: 0.4;
-    }
-
-    /* Hidden nav — visible to Google, hidden from users */
-    .seo-nav {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
     }
 
     .container {
@@ -423,6 +483,77 @@
       display: block;
     }
 
+    .info-section {
+      margin-bottom: 16px;
+    }
+
+    .info-section summary {
+      list-style: none;
+      cursor: pointer;
+      background: var(--dark2);
+      border: 1px solid rgba(210,222,229,0.15);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: background 0.15s ease;
+    }
+
+    .info-section summary::-webkit-details-marker { display: none; }
+
+    .info-section summary:hover { background: var(--dark3); }
+
+    .info-section summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--red);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    .info-section[open] summary::after { transform: rotate(45deg); }
+
+    .info-section[open] summary {
+      border-radius: 12px 12px 0 0;
+      border-bottom: none;
+    }
+
+    .info-body {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(210,222,229,0.15);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 18px 20px 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .info-body p { margin-bottom: 12px; }
+    .info-body p:last-child { margin-bottom: 0; }
+
+    .faq-item { margin-bottom: 16px; }
+    .faq-item:last-child { margin-bottom: 0; }
+
+    .faq-q {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 0.88rem;
+    }
+
+    .faq-a {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
     .footer {
       text-align: center;
       padding: 32px 0 40px;
@@ -477,15 +608,6 @@
 </head>
 <body>
 
-  <!-- SEO nav: Google sees this and uses it for sitelinks. Visually hidden from users. -->
-  <nav class="seo-nav" aria-label="Main navigation">
-    <a href="/store">Store</a>
-    <a href="/discord">Discord</a>
-    <a href="/rules">Rules</a>
-    <a href="/privacy">Privacy Policy</a>
-    <a href="/terms">Terms of Service</a>
-  </nav>
-
   <div class="container">
 
     <div class="hero">
@@ -493,7 +615,7 @@
         <img class="hero-logo" src="/assets/logo.png" alt="PeakSMP Logo" />
       </div>
       <h1 class="hero-title">PeakSMP.net</h1>
-      <p class="hero-sub">A competitive Minecraft survival experience. Java &amp; Bedrock. Join the community today.</p>
+      <p class="hero-sub">A free Minecraft lifesteal SMP with a player economy. Java &amp; Bedrock, 1.8.9 to latest. Join the community today.</p>
     </div>
 
     <div class="card-grid">
@@ -521,7 +643,7 @@
       <!-- How to Join -->
       <div class="card card-join">
         <div class="join-header-row">
-          <span class="join-label">How to Join</span>
+          <a class="join-label" href="/how-to-join" style="color: var(--text-muted); text-decoration: underline; text-decoration-color: rgba(210,222,229,0.3);">How to Join</a>
           <span class="port-label">Port</span>
         </div>
         <div class="join-editions-row">
@@ -545,10 +667,49 @@
       </div>
     </div>
 
+    <details class="info-section">
+      <summary>About PeakSMP</summary>
+      <div class="info-body">
+        <p>PeakSMP (also known as Peak SMP) is a competitive Minecraft lifesteal survival server. Players fight and survive in a shared world where losing a fight costs you hearts and defeating other players lets you steal theirs — raising the stakes on every encounter. Alongside the lifesteal mechanic, PeakSMP features a full player economy with shops, letting players trade, earn, and spend as they build up their base and gear.</p>
+        <p>PeakSMP is completely free to join — no whitelist or application required. The server supports Minecraft Java Edition and Bedrock Edition together, across version 1.8.9 through the latest release, so players on PC, console, or mobile can all connect and play on the same world. New players can join instantly at <strong>PeakSMP.net</strong> and join the Discord to connect with the community, get support, and stay updated on server news.</p>
+      </div>
+    </details>
+
+    <details class="info-section">
+      <summary>Frequently Asked Questions</summary>
+      <div class="info-body">
+        <div class="faq-item">
+          <div class="faq-q">What is PeakSMP?</div>
+          <div class="faq-a">PeakSMP is a competitive Minecraft lifesteal survival server (SMP) with a built-in player economy. Fight, survive, and trade with the community in one shared world.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do I join PeakSMP?</div>
+          <div class="faq-a">Add PeakSMP.net as your server address in Minecraft and connect — it's completely free, with no whitelist or application required. See the "How to Join" card above for the port and edition details.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is the PeakSMP server IP?</div>
+          <div class="faq-a">The server address is PeakSMP.net.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Does PeakSMP support Java and Bedrock?</div>
+          <div class="faq-a">Yes. PeakSMP supports both Java Edition and Bedrock Edition players on the same server, from version 1.8.9 through the latest release.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is PeakSMP free to play?</div>
+          <div class="faq-a">Yes, PeakSMP is completely free to play. Anyone can join at PeakSMP.net with no whitelist or application.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What are the rules on PeakSMP?</div>
+          <div class="faq-a">PeakSMP follows standard fair-play rules (no cheating, hacking, or exploiting). See the <a href="/rules" style="color: var(--red);">full rules page</a> for details.</div>
+        </div>
+      </div>
+    </details>
+
     <div class="footer">
       <div class="footer-links">
         <a href="/store">Store</a>
         <a href="/discord">Discord</a>
+        <a href="/how-to-join">How to Join</a>
         <a href="/rules">Rules</a>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
