@@ -16,6 +16,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.peaksmp.net/how-to-join</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.peaksmp.net/rules</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
@@ -32,12 +37,12 @@
   </url>
   <url>
     <loc>https://www.peaksmp.net/application/staff</loc>
-    <priority>0.7</priority>
+    <priority>0.3</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.peaksmp.net/application/media</loc>
-    <priority>0.6</priority>
+    <priority>0.3</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
