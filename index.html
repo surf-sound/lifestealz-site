@@ -113,12 +113,27 @@
       gap: 20px;
     }
 
-    .hero-logo {
+    .hero-logo-wrap {
+      position: relative;
       width: 140px;
       height: 140px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 30px rgba(95,201,243,0.6));
       animation: float 3s ease-in-out infinite;
+    }
+
+    .hero-logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, rgba(95,201,243,0.55) 0%, rgba(95,201,243,0) 70%);
+      z-index: 0;
+    }
+
+    .hero-logo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     @keyframes title-shimmer {
@@ -136,7 +151,7 @@
       font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 1;
-      background: linear-gradient(135deg, #5fc9f3 0%, #5fc9f3 40%, #1e5f7a 100%);
+      background: linear-gradient(135deg, #5FC9F3 0%, #5FC9F3 40%, #D2DEE5 100%);
       background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -277,6 +292,53 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.4);
     }
 
+    .join-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .port-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .port-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 6px 12px;
+    }
+
+    .port-value {
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: monospace;
+      letter-spacing: 0.03em;
+    }
+
+    .port-copy-btn {
+      background: #5fc9f3;
+      border: none;
+      border-radius: 6px;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .port-copy-btn:hover { background: #3fa8d1; }
+    .port-copy-btn svg { width: 14px; height: 14px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
     .join-label {
       font-size: 0.7rem;
       font-weight: 700;
@@ -319,6 +381,13 @@
 
     .copy-btn:hover { background: #3fa8d1; }
     .copy-btn svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .join-editions-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
 
     .join-editions {
       display: flex;
@@ -397,7 +466,7 @@
       .card-store { grid-column: 1; }
       .card-server { grid-column: 1; }
       .hero { padding: 40px 0 30px; }
-      .hero-logo { width: 100px; height: 100px; }
+      .hero-logo-wrap { width: 100px; height: 100px; }
     }
   </style>
 </head>
@@ -415,7 +484,9 @@
   <div class="container">
 
     <div class="hero">
-      <img class="hero-logo" src="/assets/logo.png" alt="PeakSMP Logo" />
+      <div class="hero-logo-wrap">
+        <img class="hero-logo" src="/assets/logo.png" alt="PeakSMP Logo" />
+      </div>
       <h1 class="hero-title">PeakSMP.net</h1>
       <p class="hero-sub">A competitive Minecraft survival experience. Java &amp; Bedrock. Join the community today.</p>
     </div>
@@ -444,10 +515,21 @@
 
       <!-- How to Join -->
       <div class="card card-join">
-        <span class="join-label">How to Join</span>
-        <div class="join-editions">
-          <span class="edition-tag">Java</span>
-          <span class="edition-tag">Bedrock</span>
+        <div class="join-header-row">
+          <span class="join-label">How to Join</span>
+          <span class="port-label">Port</span>
+        </div>
+        <div class="join-editions-row">
+          <div class="join-editions">
+            <span class="edition-tag">Java</span>
+            <span class="edition-tag">Bedrock</span>
+          </div>
+          <div class="port-row">
+            <span class="port-value" id="port-text">19132</span>
+            <button class="port-copy-btn" onclick="copyPort()" title="Copy Port">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
         </div>
         <div class="join-ip-row">
           <span class="join-ip" id="ip-text">PeakSMP.net</span>
@@ -472,6 +554,19 @@
   </div>
 
   <script>
+    function copyPort() {
+      var port = document.getElementById('port-text').textContent.trim();
+      navigator.clipboard.writeText(port).then(function() {
+        var btn = document.querySelector('.port-copy-btn');
+        btn.style.background = '#3fa8d1';
+        btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(function() {
+          btn.style.background = '';
+          btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+        }, 2000);
+      });
+    }
+
     function copyIP() {
       var ip = document.getElementById('ip-text').textContent.trim();
       navigator.clipboard.writeText(ip).then(function() {
