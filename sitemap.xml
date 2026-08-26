@@ -31,8 +31,13 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.peaksmp.net/applications/staff</loc>
+    <loc>https://www.peaksmp.net/application/staff</loc>
     <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.peaksmp.net/application/media</loc>
+    <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
